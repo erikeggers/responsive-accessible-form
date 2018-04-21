@@ -1,0 +1,26 @@
+{
+  "name": "form",
+  "version": "1.0.0",
+  "description": "Responsive & Accessible Form",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erikeggers/responsive-accessible-form.git"
+  },
+  "keywords": [
+    "Form"
+  ],
+  "author": "Erik Eggers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erikeggers/responsive-accessible-form/issues"
+  },
+  "homepage": "https://github.com/erikeggers/responsive-accessible-form#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
+  }
+}
