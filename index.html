@@ -4,13 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <header>
         <h1>Order Form</h1>
     </header>
-    <section>
-        <form action="">
+
+    <section id="item">
+        <h2>Band Tee</h2>
+        <ul>
+            <li><img src="images/shirt.jpg" alt="Black Band T-Shirt" class="shirt">
+                <span>$20.00</span>
+            </li>
+            <li>Select a size 
+                <ul>
+                    <li aria-label="Small">S</li>
+                    <li aria-label="Medium">M</li>
+                    <li aria-label="Large">L</li>
+                </ul>
+            </li>
+            <li> Select a color
+                <ul>
+                    <l>Green</li>
+                    <l>Red</li>
+                    <li>Black</li>
+                    <li>Blue</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <section id="orderForm">
+        <h2>Shipping Details</h2>
+        <form action="#" id="form1">
             <label for="name">Full Name</label>
             <input type="text" id="name" required/>
 
@@ -32,8 +58,7 @@
             <label for="zip">Zipcode</label>
             <input type="text" id="zip" required pattern="\d{5}-?(\d{4})?"/>
 
-            <label for="country"></label>
-
+            <label for="country">Country</label>
             <select name="country" id="country">
                 <option value="">Country...</option>
                 <option value="Afganistan">Afghanistan</option>
@@ -284,10 +309,30 @@
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
             </select>
-
-            <button type="submit">SUBMIT</button>
-
         </form>
+    </section>
+
+    <section id="summary">
+        <h2>Order Summary</h2>
+             
+            <ul>
+                <li>
+                    <p>Band Tee</p>
+                    <p>$20.00</p>
+                </li>
+                <li>
+                    <p>Shipping</p>
+                    <p>Free</p> 
+                </li>
+                <li>
+                    <p>Total</p>
+                    <p>$20.00</p>
+                </li>
+                <li class="shippingAddress">
+                    <p>Shipping Address</p>
+                </li>
+            </ul>
+            <button type="submit" form="form1">Complete Order</button>
     </section>
 </body>
 </html>
