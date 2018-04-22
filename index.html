@@ -15,19 +15,19 @@
         <div id="item">
             <h2>Band Tee</h2>
 
-            <img src="images/shirt.jpg" alt="Black Band T-Shirt" class="shirt">
+            <img src="images/shirt.jpg" alt="Black Band T-Shirt on man" class="shirt">
             <p>$20.00</p>
 
-            <label for="">Select a size</label>
-            <fieldset id="shirtSize">
-                <input type="radio" value="Small" name="shirtSize" aria-label="Small">
-                <input type="radio" value="Medium" name="shirtSize" aria-label="Medium">
-                <input type="radio" value="Large" name="shirtSize" aria-label="Large">
+            <fieldset id="shirtSizeContainer">
+                <legend>Select a size</legend>
+                <input type="radio" value="Small" name="shirtSize" class="shirtSize" aria-label="Small" required>
+                <input type="radio" value="Medium" name="shirtSize" class="shirtSize" aria-label="Medium">
+                <input type="radio" value="Large" name="shirtSize" class="shirtSize" aria-label="Large">
             </fieldset>
 
-            <label for="">Select a color</label>
-            <fieldset id="shirtColor">
-                <input type="radio" value="Green" name="shirtColor" aria-label="Green">
+            <fieldset id="shirtColorContainer">
+                <legend>Select a color</legend>
+                <input type="radio" value="Green" name="shirtColor" aria-label="Green" required>
                 <input type="radio" value="Red" name="shirtColor" aria-label="Red">
                 <input type="radio" value="Black" name="shirtColor" aria-label="Black">
                 <input type="radio" value="Blue" name="shirtColor" aria-label="Blue">
@@ -38,25 +38,25 @@
             <h2>Shipping Details</h2>
 
             <label for="name">Full Name</label>
-            <input type="text" id="name" required/>
+            <input type="text" id="name" aria-required="true" required/>
 
             <label for="email">Email</label>
-            <input type="email" id="email" required/>
+            <input type="email" id="email" aria-required="true" required/>
 
             <label for="address">Address</label>
-            <input type="text" id="address" required/>
+            <input type="text" id="address" aria-required="true" required/>
 
             <label for="addressTwo">Address 2</label>
             <input type="text" id="addressTwo"/>
 
             <label for="city">City</label>
-            <input type="text" id="city" required/>
+            <input type="text" id="city" aria-required="true" required/>
 
             <label for="state">State</label>
-            <input type="text" id="state" required/>
+            <input type="text" id="state" aria-required="true" required/>
 
             <label for="zip">Zipcode</label>
-            <input type="text" id="zip" required pattern="\d{5}-?(\d{4})?"/>
+            <input type="text" id="zip" aria-required="true" required pattern="\d{5}-?(\d{4})?"/>
 
             <label for="country">Country</label>
             <select name="country" id="country" required>
@@ -311,30 +311,30 @@
             </select>
         </div>
         </form>
-    </section>
 
-    <section id="summary">
-        <h2>Order Summary</h2>
-             
-        <ul>
-            <li>
-                <p>Band Tee</p>
-                <p>$20.00</p>
-            </li>
-            <li>
-                <p>Shipping</p>
-                <p>Free</p> 
-            </li>
-            <li>
-                <p>Total</p>
-                <p>$20.00</p>
-            </li>
-            <li class="shippingAddress">
-                <p>Shipping Address</p>
-            </li>
-        </ul>
-
-        <button type="submit" form="form1">Complete Order</button>
+        <div id="summary">
+            <h2>Order Summary</h2>
+                 
+            <ul>
+                <li>
+                    <p>Band Tee</p>
+                    <p>$20.00</p>
+                </li>
+                <li>
+                    <p>Shipping</p>
+                    <p>Free</p> 
+                </li>
+                <li>
+                    <p>Total</p>
+                    <p>$20.00</p>
+                </li>
+                <li class="shippingAddress">
+                    <p>Shipping Address</p>
+                </li>
+            </ul>
+        
+            <button type="submit" form="form1">Complete Order</button>
+        </div>
     </section>
 <script src="js/main.js"></script>
 </body>
