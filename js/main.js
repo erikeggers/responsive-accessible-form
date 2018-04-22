@@ -1,5 +1,7 @@
 const submit = document.querySelector('button');
 const nameField = document.querySelector('#name');
+const shirtSizeField = document.getElementsByName('shirtSize')[2];
+const shirtColorField = document.getElementsByName('shirtColor')[3];
 const emailField = document.querySelector('#email');
 const addressField = document.querySelector('#address');
 const addressTwoField = document.querySelector('#addressTwo');
@@ -22,16 +24,16 @@ class CheckValidity {
     getMessages() {
         const status = this.input.validity;
 
+        if (status.valueMissing) {
+            this.addError('Field can not be blank');
+        }
+
         if (status.typeMismatch) {
             this.addError('Entry does not match type');
         }
 
         if (status.patternMismatch) {
             this.addError('Invalid Zip Code');
-        }
-
-        if (status.valueMissing) {
-            this.addError('Field can not be blank');
         }
 
         return this.errors;
@@ -42,6 +44,22 @@ class CheckValidity {
 submit.addEventListener("click", (event) => {
     event.preventDefault();
 
+    //Shirt Size
+    console.log(shirtSizeField)
+    let validateSize = new CheckValidity(shirtSizeField, "radio");
+    let shirtSizeErrorMessage = validateSize.getMessages();
+    shirtSizeField.nextSibling.remove();
+    shirtSizeField.insertAdjacentHTML('afterend', '<p class="error">' + shirtSizeErrorMessage + '</p>'); 
+    
+    console.log(shirtSizeErrorMessage);
+
+    //Shirt Color
+    console.log(shirtColorField)
+    let validateColor = new CheckValidity(shirtColorField, "radio");
+    let shirtColorErrorMessage = validateColor.getMessages();
+    shirtColorField.nextSibling.remove();
+    shirtColorField.insertAdjacentHTML('afterend', '<p class="error">' + shirtColorErrorMessage + '</p>'); 
+
     //Name
     let validateName = new CheckValidity(nameField, "text");
     let nameErrorMessage = validateName.getMessages();
@@ -49,7 +67,6 @@ submit.addEventListener("click", (event) => {
     nameField.insertAdjacentHTML('afterend', '<p class="error">' + nameErrorMessage + '</p>'); 
     
     console.log(nameErrorMessage);
-    
 
     //Email 
     let validateEmail = new CheckValidity(emailField, "email");
