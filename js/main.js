@@ -40,6 +40,32 @@ class CheckValidity {
     }
 }
 
+function addErrorToElement(msg, field) {
+    if (field.nextSibling) {
+        field.nextSibling.remove();
+    }
+
+    if (msg != '') {
+        let describedby;
+
+        if (field.getAttribute("class")) {
+            describedby = field.getAttribute("class") + 'Error';
+        } else if (field.getAttribute("id")){
+            describedby = field.getAttribute("id") + 'Error';
+        }
+
+        field.setAttribute('aria-describedby', describedby);
+        field.insertAdjacentHTML('afterend', '<p class="error" id="' + describedby + '">' + msg + '</p>'); 
+
+        field.removeAttribute("aria-invalid")
+        field.setAttribute("aria-invalid", "true");
+        
+    } else {
+        field.removeAttribute("aria-invalid")
+        field.setAttribute("aria-invalid", "false");
+    }
+
+}
 
 submit.addEventListener("click", (event) => {
     event.preventDefault();
@@ -48,65 +74,46 @@ submit.addEventListener("click", (event) => {
     console.log(shirtSizeField)
     let validateSize = new CheckValidity(shirtSizeField, "radio");
     let shirtSizeErrorMessage = validateSize.getMessages();
-    shirtSizeField.nextSibling.remove();
-    shirtSizeField.insertAdjacentHTML('afterend', '<p class="error">' + shirtSizeErrorMessage + '</p>'); 
-    
-    console.log(shirtSizeErrorMessage);
+    addErrorToElement(shirtSizeErrorMessage, shirtSizeField);
 
     //Shirt Color
     console.log(shirtColorField)
     let validateColor = new CheckValidity(shirtColorField, "radio");
     let shirtColorErrorMessage = validateColor.getMessages();
-    shirtColorField.nextSibling.remove();
-    shirtColorField.insertAdjacentHTML('afterend', '<p class="error">' + shirtColorErrorMessage + '</p>'); 
+    addErrorToElement(shirtColorErrorMessage, shirtColorField);
 
     //Name
     let validateName = new CheckValidity(nameField, "text");
     let nameErrorMessage = validateName.getMessages();
-    nameField.nextSibling.remove();
-    nameField.insertAdjacentHTML('afterend', '<p class="error">' + nameErrorMessage + '</p>'); 
-    
-    console.log(nameErrorMessage);
+    addErrorToElement(nameErrorMessage, nameField);
 
     //Email 
     let validateEmail = new CheckValidity(emailField, "email");
     let emailErrorMessage = validateEmail.getMessages();
-    emailField.nextSibling.remove();
-    emailField.insertAdjacentHTML('afterend', '<p class="error">' + emailErrorMessage + '</p>'); 
-    console.log(emailErrorMessage);
+    addErrorToElement(emailErrorMessage, emailField);
 
     //Address
     let validateAddress = new CheckValidity(addressField, "text");
     let addressErrorMessage = validateAddress.getMessages();
-    addressField.nextSibling.remove();
-    addressField.insertAdjacentHTML('afterend', '<p class="error">' + addressErrorMessage + '</p>'); 
-    console.log(addressErrorMessage);
+    addErrorToElement(addressErrorMessage, addressField);
 
     //City 
     let validateCity = new CheckValidity(cityField, "text");
     let cityErrorMessage = validateCity.getMessages();
-    cityField.nextSibling.remove();
-    cityField.insertAdjacentHTML('afterend', '<p class="error">' + cityErrorMessage + '</p>'); 
-    console.log(cityErrorMessage);
+    addErrorToElement(cityErrorMessage, cityField);
 
     //State
     let validateState = new CheckValidity(stateField, "text");
     let stateErrorMessage = validateState.getMessages();
-    stateField.nextSibling.remove();
-    stateField.insertAdjacentHTML('afterend', '<p class="error">' + stateErrorMessage + '</p>'); 
-    console.log(stateErrorMessage);
+    addErrorToElement(stateErrorMessage, stateField);
 
     //Zip
     let validateZip = new CheckValidity(zipField, "text");
     let zipErrorMessage = validateZip.getMessages();
-    zipField.nextSibling.remove();
-    zipField.insertAdjacentHTML('afterend', '<p class="error">' + zipErrorMessage + '</p>');
-    console.log(zipErrorMessage);
+    addErrorToElement(zipErrorMessage, zipField);
 
     //Country
     let validateCountry = new CheckValidity(countryField, "text");
     let countryErrorMessage = validateCountry.getMessages();
-    countryField.nextSibling.remove();
-    countryField.insertAdjacentHTML('afterend', '<p class="error">' + countryErrorMessage + '</p>');
-    console.log(countryErrorMessage);
+    addErrorToElement(countryErrorMessage, countryField);
 })
