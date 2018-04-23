@@ -12,25 +12,40 @@
     </header>
     <section id="orderForm">
         <form action="#" id="form1">
-        <div id="item">
+        <div class="item">
             <h2>Band Tee</h2>
-
             <img src="images/shirt.jpg" alt="Black Band T-Shirt on man" class="shirt">
             <p>$20.00</p>
 
-            <fieldset id="shirtSizeContainer">
-                <legend>Select a size</legend>
-                <input type="radio" value="Small" name="shirtSize" class="shirtSize" aria-label="Small" required>
-                <input type="radio" value="Medium" name="shirtSize" class="shirtSize" aria-label="Medium">
-                <input type="radio" value="Large" name="shirtSize" class="shirtSize" aria-label="Large">
+            <fieldset id="shirtSizeContainer" role="group" aria-describedby="selectASize">
+                <legend id="selectASize">Select a size</legend>
+
+                    <input type="radio" value="S" name="shirtSize" id="shirtSizeSmall" required>
+                    <label for="shirtSizeSmall" class="shirtSizeLabel" aria-label="Small" tabindex="0">S</label>
+
+                    <input type="radio" value="M" name="shirtSize" id="shirtSizeMed">
+                    <label for="shirtSizeMed" class="shirtSizeLabel" aria-label="Medium" tabindex="0">M</label>
+                    
+                    <input type="radio" value="L" name="shirtSize" id="shirtSizeLarge">
+                    <label for="shirtSizeLarge" class="shirtSizeLabel" aria-label="Large" tabindex="0">L</label>
+
             </fieldset>
 
-            <fieldset id="shirtColorContainer">
-                <legend>Select a color</legend>
-                <input type="radio" value="Green" name="shirtColor" aria-label="Green" required>
-                <input type="radio" value="Red" name="shirtColor" aria-label="Red">
-                <input type="radio" value="Black" name="shirtColor" aria-label="Black">
-                <input type="radio" value="Blue" name="shirtColor" aria-label="Blue">
+            <fieldset id="shirtColorContainer" role="group" aria-describedby="selectAColor">
+                <legend id="selectAColor">Select a color</legend>
+                
+                <input type="radio" value="Green" name="shirtColor" aria-label="Green" id="green" required>
+                <label for="green" id="greenLabel" aria-label="Green" tabindex="0">Green</label>
+
+                <input type="radio" value="Red" name="shirtColor" aria-label="Red" id="red">
+                <label for="red" id="redLabel" aria-label="Red" tabindex="0">Red</label>
+
+                <input type="radio" value="Black" name="shirtColor" aria-label="Black" id="black">
+                <label for="black" id="blackLabel" aria-label="Black" tabindex="0">Black</label>
+
+                <input type="radio" value="Blue" name="shirtColor" aria-label="Blue" id="blue">
+                <label for="blue" id="blueLabel" aria-label="Blue" tabindex="0">Blue</label>
+
             </fieldset>
         </div>
 
@@ -310,31 +325,36 @@
                 <option value="Zimbabwe">Zimbabwe</option>
             </select>
         </div>
-        </form>
 
-        <div id="summary">
+        <div class="summary">
             <h2>Order Summary</h2>
-                 
-            <ul>
+
+            <ul class="summaryList">
                 <li>
-                    <p>Band Tee</p>
-                    <p>$20.00</p>
+                    <p>Band Tee <span class="selectedSize"></span> <span class="selectedColor"></span><span>$20.00</span></p>
                 </li>
                 <li>
-                    <p>Shipping</p>
-                    <p>Free</p> 
+                    <p>Shipping<span>Free</span></p>
                 </li>
                 <li>
-                    <p>Total</p>
-                    <p>$20.00</p>
+                    <p>Total<span>$20.00</span></p>
                 </li>
                 <li class="shippingAddress">
                     <p>Shipping Address</p>
+                    <div class="liveName"></div>
+                    <div class="liveEmail"></div>
+                    <div class="liveAddress"></div>
+                    <div class="liveAddressTwo"></div>
+                    <div class="liveCity"></div>
+                    <div class="liveState"></div>
+                    <div class="liveZip"></div>
+                    <div class="liveCountry"></div>
                 </li>
             </ul>
-        
+
             <button type="submit" form="form1">Complete Order</button>
         </div>
+        </form>
     </section>
 <script src="js/main.js"></script>
 </body>
